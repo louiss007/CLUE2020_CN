@@ -113,7 +113,7 @@ def predict(text):
     for index, prob in enumerate(probs):
         for v in prob[1:len(data[index]) + 1]:
             result.append(id2label[int(v)])
-    print(result)
+    # print(result)
     labels = {}
     start = None
     index = 0
@@ -163,6 +163,7 @@ def predict(text):
 
 
 def submit(path):
+    text_name = path.split('/')[-1].split('.')[0]
     data = []
     for line in open(path):
         if not line.strip():
@@ -170,7 +171,7 @@ def submit(path):
         _ = json.loads(line.strip())
         res = predict(_["text"])
         data.append(json.dumps({"label": res}, ensure_ascii=False))
-    open("../result/ner_predict.json", "w").write("\n".join(data))
+    open("../result/ner_predict_{0}.json".format(text_name), "w").write("\n".join(data))
 
 
 if __name__ == "__main__":
@@ -178,4 +179,4 @@ if __name__ == "__main__":
     res_ = predict(text_)
     print(res_)
 
-    submit("../data/test.json")
+    submit("../data/dev.json")
