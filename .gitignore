@@ -127,3 +127,19 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+data/
+*.json
+*.tf_record
+
+ner_model/ner_*
+*.ckpt*
+
+bert_base/
+*.ckpt*
+*.json
+*.txt
+
+result/
+*.json
