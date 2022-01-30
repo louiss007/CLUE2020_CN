@@ -171,7 +171,7 @@ def submit(path):
         _ = json.loads(line.strip())
         res = predict(_["text"])
         data.append(json.dumps({"label": res}, ensure_ascii=False))
-    open("../result/ner_predict_{0}.json".format(text_name), "w").write("\n".join(data))
+    open("../result/cluener_predict_{0}.json".format(text_name), "w").write("\n".join(data))
 
 
 if __name__ == "__main__":

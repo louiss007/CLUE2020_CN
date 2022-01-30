@@ -141,6 +141,11 @@ bert_base/
 *.json
 *.txt
 
+roberta_wwm_large/
+*.ckpt*
+*.json
+*.txt
+
 result/
 *.json
 
